@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f5f5f5;
+}
+header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+h1 {
+    font-size: 80px;
+}
+.topnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#searchInput {
+    font-style: italic;
+    font-size: 25px;
+    padding: 18px 20px;
+    width: 550px;
+    padding-left: 60px;
+    border: none;
+}
+
+/*Potentiell lösning på knappen. 
+Relativ positionändring i jscript.
+Syns just nu lite men halvt dold bakom. Sätt framför i Jscript
+ändra relativ position med margin right*/
+#selectAllButton {
+    font-size: 25px;
+    padding: 18px 20px;
+    border:none;
+    margin-right: -80px;
+    position: relative;
+    z-index: 1;
+    background-color:white;
+}
+
+ /* avstånden mellan listan och texten under*/
+ul {
+    margin-top: 50px;
+    text-align: center;
+    font-size: small;
+}
+
+/*avstånden mellan texten under listan*/
+ul li {
+    margin-bottom: 10px;
+}
+
+/*enbart för att få till färgen på TodoMVC längst ner*/
+#clickableLink a {
+    text-decoration: none;
+    color: black;
+}
