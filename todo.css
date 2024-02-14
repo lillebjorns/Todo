@@ -34,11 +34,10 @@ Syns just nu lite men halvt dold bakom. Sätt framför i Jscript
 ändra relativ position med margin right*/
 #selectAllButton {
     font-size: 25px;
-    padding: 18px 20px;
+    padding: 10px 15px;
     border:none;
-    margin-right: -80px;
+    margin-right: -50px;
     position: relative;
-    z-index: 1;
     background-color:white;
 }
 

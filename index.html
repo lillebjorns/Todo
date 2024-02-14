@@ -11,10 +11,14 @@
 <body>
     <header><h1>todos</h1></header>
     <div class="topnav">
-            <div class="selectAll">
-                <button id="selectAllButton">></button>
-            </div>
-            <input id="searchInput" type="text" placeholder="What needs to be done?">
+           
+            <form id="todoinput">
+                <label for="searchInput">
+                    <button id="selectAllButton">></button>
+                   </label> 
+                <input id="searchInput" type="text" placeholder="What needs to be done?" autofocus for="searchInput">
+            
+              </form>
     </div>
     <ul>
         <li>Double-click to edit a todo does not work in this version</li>
