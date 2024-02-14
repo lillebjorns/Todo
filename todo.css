@@ -28,24 +28,41 @@ h1 {
     border: none;
 }
 
-/*Potentiell lösning på knappen. 
-Relativ positionändring i jscript.
-Syns just nu lite men halvt dold bakom. Sätt framför i Jscript
-ändra relativ position med margin right*/
 #selectAllButton {
+    display: none;
     font-size: 25px;
     padding: 10px 15px;
     border:none;
-    margin-right: -50px;
+    margin-right: -52px;
     position: relative;
     background-color:white;
 }
+
+/*ger en "låda" till alla entiteter under searchInput*/
+.counter-box {
+    display: flex;
+    justify-content: center; 
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 550px;
+    margin: 0 auto;
+  }
+  
+  #counter {
+    text-align: left; 
+    margin-right: auto;
+  }
+  
+  .counter-buttons button {
+    text-align: center; 
+  }
 
  /* avstånden mellan listan och texten under*/
 ul {
     margin-top: 50px;
     text-align: center;
     font-size: small;
+    list-style-type: none;
 }
 
 /*avstånden mellan texten under listan*/
