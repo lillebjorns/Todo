@@ -41,7 +41,7 @@ h1 {
 /*ger en "låda" till alla entiteter under searchInput*/
 .counter-box {
     display: flex;
-    justify-content: center; 
+    justify-content: space-between; 
     border: 1px solid #ddd;
     padding: 10px;
     width: 550px;
@@ -50,11 +50,25 @@ h1 {
   
   #counter {
     text-align: left; 
-    margin-right: auto;
   }
-  
-  .counter-buttons button {
-    text-align: center; 
+
+  /*lösning från stack overflow, ger samma plats till både 
+  counter och den tomma entiteten*/
+  #counter, #space-taker {
+    flex: 1;
+  }
+  #active-items {
+    display: flex;
+    justify-content: center;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  /*bestäm avstånd mellan knapparna*/
+  .counter-box button {
+    margin: 0 5px;
   }
 
  /* avstånden mellan listan och texten under*/
