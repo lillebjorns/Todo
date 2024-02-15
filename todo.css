@@ -54,7 +54,7 @@ h1 {
 
   /*lösning från stack overflow, ger samma plats till både 
   counter och den tomma entiteten*/
-  #counter, #space-taker {
+  #counter, #clear-completed {
     flex: 1;
   }
   #active-items {
