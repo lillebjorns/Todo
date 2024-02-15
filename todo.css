@@ -46,32 +46,39 @@ h1 {
     padding: 10px;
     width: 550px;
     margin: 0 auto;
-  }
-  
-  #counter {
-    text-align: left; 
-  }
+}
 
-  /*lösning från stack overflow, ger samma plats till både 
-  counter och den tomma entiteten*/
-  #counter, #clear-completed {
+#counter {
+    text-align: left; 
+}
+#clear-completed {
+    text-align: right;
+}
+
+/*lösning från stack overflow, ger samma plats till både 
+counter och den tomma entiteten*/
+#counter, #clear-completed {
     flex: 1;
-  }
-  #active-items {
+}
+#active-items {
     display: flex;
     justify-content: center;
-  }
-  .button-container {
+}
+.button-container {
     display: flex;
     justify-content: center;
     width: 100%;
-  }
-  /*bestäm avstånd mellan knapparna*/
-  .counter-box button {
+}
+/*bestäm avstånd mellan knapparna*/
+.counter-box button {
     margin: 0 5px;
+}
+/*Gömmer hela lådan från counter-box ner hit
+ta bort med css, detta är grundbeteendet*/
+.hidden {
+    display: none;
   }
-
- /* avstånden mellan listan och texten under*/
+/* avstånden mellan listan och texten under*/
 ul {
     margin-top: 50px;
     text-align: center;
