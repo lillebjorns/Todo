@@ -25,7 +25,8 @@ h1 {
 .topnav {
     display: flex;
     position: relative;
-    width: 100%;
+    width:550px;
+    
     height: 65px;
   }
     
