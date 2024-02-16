@@ -19,17 +19,29 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-#searchInput {
+#input {
     font-style: italic;
     font-size: 25px;
     padding: 18px 20px;
     width: 550px;
     padding-left: 60px;
-    border: none;
+    border-color: #cf7d7d;
+}
+#itemList{
+    list-style: none;
+    
+}
+#itemList li{
+    display: flex;
+    font-size: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #dfdfdf;
+   
 }
 
+
 #selectAllButton {
-    display: none;
+    display: none; 
     font-size: 25px;
     padding: 10px 15px;
     border:none;
@@ -38,7 +50,7 @@ h1 {
     background-color:white;
 }
 
-/*ger en "låda" till alla entiteter under searchInput*/
+/*ger en "låda" till alla entiteter under input*/
 .counter-box {
     display: flex;
     justify-content: space-between; 
@@ -61,8 +73,11 @@ counter och den tomma entiteten*/
     flex: 1;
 }
 #active-items {
-    display: flex;
-    justify-content: center;
+  display: flex; /* Change to flex */
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin: 0 5px;
 }
 .button-container {
     display: flex;
@@ -76,7 +91,7 @@ counter och den tomma entiteten*/
 /*Gömmer hela lådan från counter-box ner hit
 ta bort med css, detta är grundbeteendet*/
 .hidden {
-    display: none;
+    /* display: none; */
   }
 /* avstånden mellan listan och texten under*/
 ul {
