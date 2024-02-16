@@ -4,7 +4,7 @@ let itemsLeft = document.querySelector('#counter');
 
 let itemArray = [];
 
-const footer = document.getElementById('#footer');
+const footerButtons = document.getElementById('#ButtonFooter');
 
 
 function itemCounter(){
@@ -12,7 +12,8 @@ function itemCounter(){
 
 }
 function DisplayFooter(){
+
     if(itemsLeft < 1){
-        
+
     }
 }
