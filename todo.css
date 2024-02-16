@@ -27,6 +27,7 @@ h1 {
     padding-left: 60px;
     border-color: #cf7d7d;
 }
+
 #itemList{
     list-style: none;
     
@@ -39,9 +40,8 @@ h1 {
    
 }
 
-
 #selectAllButton {
-    display: none; 
+    /* display: none;  */
     font-size: 25px;
     padding: 10px 15px;
     border:none;
@@ -94,7 +94,7 @@ ta bort med css, detta är grundbeteendet*/
     /* display: none; */
   }
 /* avstånden mellan listan och texten under*/
-ul {
+#infoList {
     margin-top: 50px;
     text-align: center;
     font-size: small;
@@ -102,7 +102,7 @@ ul {
 }
 
 /*avstånden mellan texten under listan*/
-ul li {
+#infoList li {
     margin-bottom: 10px;
 }
 
