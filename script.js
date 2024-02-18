@@ -1,75 +1,169 @@
-let inputBar = document.querySelector('#input');
-let itemList = document.querySelector('#itemList');
-let itemsLeft = document.querySelector('#counter');
-let footerButtons = document.getElementById('buttonFooter');
+// TOTAL REHAUL PÅ HELA JAVASCRIPTET FÖR DET FÖRRA BLEV EXTREMT FÖRVIRRANDE
+// ny approach: metoder.
 
-let itemArray = [];
+let todoInput = document.getElementById('input');
+let itemList = document.getElementById('itemList');
+let counterBox = document.querySelector('.counter-box');
+let counter = document.getElementById('counter');
+let AllButton = document.getElementById('AllButton');
+let activeButton = document.getElementById('activeButton');
+let completedButton = document.getElementById('completedButton');
+let clearCompletedButton = document.getElementById('clearCompleted');
+let selectAllButton = document.getElementById('selectAllButton');
+let todoForm = document.getElementById('todoinput');
 
+let todos = [];
+renderTodos(); // första som händer när sidan läses in
 
-function itemCounter() {
-    let todocounter = itemArray.filter(item => !item.completed).length;
+function createTodoElement(todo, index) {
+  const todoItem = document.createElement('li');
+  const todoDiv = document.createElement('div');
+  const toggleInput = document.createElement('input');
+  const todoLabel = document.createElement('label');
+  const destroyButton = document.createElement('button');
 
-    itemsLeft.textContent = todocounter;
-  
-    if (todocounter > 0) {
-      footerButtons.style.display = 'flex';
-    } else {
-      footerButtons.style.display = 'none';
-    }
-  }
+  todoItem.classList.add('todo-item');
+  toggleInput.classList.add('toggle');
+  destroyButton.classList.add('destroy');
 
-  inputBar.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-      addNewItem();
-    }
-  });
+  toggleInput.type = 'checkbox';
+  toggleInput.checked = todo.completed;
+  toggleInput.setAttribute('data-index', index);//index till för att manipulera rätt todo
 
-function addNewItem() {
-    let newItem = inputBar.value.trim();
-  
-    if (newItem !== '') {
-      itemArray.push({ text: newItem, completed: false });
-      addItemToDOM(newItem); 
-      itemCounter(); 
-      inputBar.value = ''; 
-    }
-  }
+  todoLabel.textContent = todo.text;
 
+  destroyButton.setAttribute('data-index', index);//index till för att manipulera rätt todo
+  destroyButton.textContent = '❌';
 
-function addItemToDOM(newItem) {
-  let newListItem = document.createElement('li');
-  let checkbox = document.createElement('input');
-  let label = document.createElement('label');
-  let deleteButton = document.createElement('button');
+  todoDiv.appendChild(toggleInput);
+  todoDiv.appendChild(todoLabel);
+  todoDiv.appendChild(destroyButton);
 
-  
-  checkbox.type = 'checkbox';
-  label.textContent = newItem;
-  deleteButton.textContent = 'X';
-  deleteButton.classList.add('delete-button'); 
+  todoItem.appendChild(todoDiv);
 
- 
-  label.appendChild(checkbox);
-  newListItem.appendChild(label);
-  newListItem.appendChild(deleteButton);
-  itemList.appendChild(newListItem);
-
-  checkbox.addEventListener('change', function() {
-    let labelText = label.textContent.trim(); 
-
-    let itemToUpdate = itemArray.find(item => item.text === labelText);
-
-    itemToUpdate.completed = checkbox.checked;
-
-    itemCounter();
-});
-  
-  deleteButton.addEventListener('click', () => {
-    
-    newListItem.remove();
-    itemCounter(); 
-  });
+  return todoItem;
 }
- itemCounter(); 
+
+
+function renderTodos() {
+
+  while (itemList.firstChild) { // typ som 'state'
+    itemList.removeChild(itemList.firstChild);
+  }
+  todos.forEach((todo, index) => {
+    const todoElement = createTodoElement(todo, index);
+    itemList.appendChild(todoElement);
+  });
+
+  updateCounter();
+  toggleCounterBox();
+}
+function renderFilteredTodos(filteredTodos) { // samma som ovan fast med filtrerade todos som parameter
+
+  while (itemList.firstChild) { // typ som 'state'
+    itemList.removeChild(itemList.firstChild);
+  }
+  filteredTodos.forEach((todo, index) => {
+    const todoElement = createTodoElement(todo, index);
+    itemList.appendChild(todoElement);
+  });
+
+  updateCounter();
+}
+
+// räknare
+function updateCounter() {
+  const activeTodos = todos.filter(todo => !todo.completed).length;
+  counter.textContent = `${activeTodos} item${activeTodos !== 1 ? 's' : ''} left`; // pluralsfix
+}
+
+// visa footern/counterbox metod
+function toggleCounterBox() {
+  if (todos.length > 0) {
+    counterBox.style.display = 'block';
+    //lägg till så att pilen ändras här
+  } else {
+    counterBox.style.display = 'none';
+  }
+}
+
+// lägg till todo 
+todoForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const text = todoInput.value.trim();
+  if (text !== '') {
+    todos.push({ text, completed: false });
+    todoInput.value = '';
+    renderTodos();
+  }
+});
+
+// checkfunktionaliteten
+itemList.addEventListener('change', function (event) {
+  if (event.target.classList.contains('toggle')) {
+    const index = event.target.dataset.index;
+    todos[index].completed = !todos[index].completed;
+    renderTodos();
+  }
+});
+
+// target:destroy.
+itemList.addEventListener('click', function (event) {
+  if (event.target.classList.contains('destroy')) {
+    const index = event.target.dataset.index;
+    todos.splice(index, 1);
+    renderTodos();
+  }
+});
+
+AllButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  todos = [...todos];
+  renderTodos();
+});
+
+activeButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  const activeTodos = todos.filter(todo => !todo.completed);
+  renderFilteredTodos(activeTodos);
+});
+
+completedButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  const completedTodos = todos.filter(todo => todo.completed);
+  renderFilteredTodos(completedTodos);
+});
+
+// rensar färdiga rackare
+clearCompletedButton.addEventListener('click', function (event) {
+  event.preventDefault();
+  todos = todos.filter(todo => !todo.completed);
+  renderTodos();
+});
+
+selectAllButton.addEventListener('click', function (event) {
+  let allCompleted = true;
+
+  todos.forEach(todo => {
+    if (!todo.completed) {// kollar om alla todos är checkade
+      allCompleted = false;
+      return; //hoppa ur loopen tidigt om inte checkad
+    }
+  });
+
+  todos.forEach(todo => {
+    if (allCompleted) {
+      // checka ur allt om alla är checkade
+      todo.completed = false;
+    } else {
+      // checka i de som inte är checkade
+      if (!todo.completed) {
+        todo.completed = true;
+      }
+    }
+  });
+
+  renderTodos();
+});
+
 

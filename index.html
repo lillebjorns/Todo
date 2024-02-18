@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo</title>
 
-    <link rel="stylesheet" href="todo.css">
-    <script src="script.js" defer></script>
+  <link rel="stylesheet" href="todo.css">
+  <script src="script.js" defer></script>
 </head>
-<body>
-    <section class="todoapp">
 
-   
-    <header><h1>todos</h1></header>
-    <div class="topnav"> 
-        <form id="todoinput">
-            <label for="input">
-              <input id="input" type="text" placeholder="What needs to be done?" autofocus for="input">
-              <button id="selectAllButton">></button>
-               </label> 
-          </form>
-    </div>
-    <main>
-      <ul id="itemList">
-      </ul>
-    </main>
-    <footer id="buttonFooter">
-      <div class="counter-box">
-        <div id="counter">counter</div>
-        <form id="active-items">
-          <button id="AllButton">All</button>
-          <button id="activeButton">Active</button>
-          <button id="completedButton">Completed</button>
-        </form>
-        <!-- Potentiell lösning på centerproblem -->
-        <div id="clear-completed">
-          <button id="clearCompleted">Clear Completed</button>
-        </div>
-      </div>
-    </footer>
-  </section>
-    <ul id="infoList">
-        <li>Double-click to edit a todo does not work in this version</li>
-        <li>Created by others than the TodoMVC Team</li>
-        <li id="clickableLink">Not part of <a href="https://todomvc.com">TodoMVC</a></li>
+<body>
+
+  <header>
+    <h1>todos</h1>
+  </header>
+  <div class="topnav">
+    <form id="todoinput">
+      <label for="input">
+        <input id="input" type="text" placeholder="What needs to be done?" autofocus for="input">
+      </label>
+    </form>
+    <button id="selectAllButton">></button>
+  </div>
+  <main>
+    <ul id="itemList">
     </ul>
+  </main>
+
+  <div class="counter-box">
+    <div id="counter"></div>
+    <form id="active-items">
+      <button id="AllButton">All</button>
+      <button id="activeButton">Active</button>
+      <button id="completedButton">Completed</button>
+    </form>
+
+    <div id="clear-completed">
+      <button id="clearCompleted">Clear Completed</button>
+    </div>
+  </div>
+
+
+  <ul id="infoList">
+    <li>Double-click to edit a todo does not work in this version</li>
+    <li>Created by others than the TodoMVC Team</li>
+    <li id="clickableLink">Not part of <a href="https://todomvc.com">TodoMVC</a></li>
+  </ul>
 </body>
+
 </html>

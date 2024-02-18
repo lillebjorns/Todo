@@ -3,7 +3,9 @@
     margin: 0;
     padding: 0;
 }
+
 body {
+    word-break: break-word;
     display: flex;
     font-size: 15px;
     flex-direction: column;
@@ -11,38 +13,41 @@ body {
     justify-content: center;
     background-color: #f5f5f5;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 }
+
 header {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
     color: #b83f45;
 }
+
 h1 {
     font-size: 80px;
     font-weight: 200;
 }
+
 .topnav {
     display: flex;
     position: relative;
-    width:550px;
-    
+    width: 550px;
     height: 65px;
-  }
-    
-  #selectAllButton {
+}
+
+#selectAllButton {
     position: absolute;
     height: 65px;
     width: 45px;
     font-size: 20px;
-    padding: 8px; 
-    background-color: white; 
+    padding: 8px;
+    background-color: white;
     margin-left: 0;
     z-index: 1;
     border: none;
-  }
+}
 
-  #input {
+#input {
     font-style: italic;
     position: absolute;
     font-size: 24px;
@@ -51,8 +56,8 @@ h1 {
     width: calc(100%);
     height: 100%;
     padding-left: 45px;
-    border:none
-  }
+    border: none
+}
 
 #itemList li {
     width: 550px;
@@ -61,12 +66,20 @@ h1 {
     font-size: 15px;
     text-align: left;
     list-style-type: none;
+} 
+.destroy {
+    display: none;
+    cursor: pointer;
+}
+
+.todo-item:hover .destroy {
+    display: inline;
 }
 
 /*ger en "låda" till alla entiteter under input*/
 .counter-box {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     border: 1px solid #ddd;
     padding: 10px;
     width: 550px;
@@ -74,33 +87,34 @@ h1 {
 }
 
 #counter {
-    text-align: left; 
+    text-align: left;
 }
+
 #clear-completed {
     text-align: right;
 }
 
 /*lösning från stack overflow, ger samma plats till både 
 counter och den tomma entiteten*/
-#counter, #clear-completed {
+#counter,
+#clear-completed {
     flex: 1;
 }
+
 #active-items {
-  display: flex; /* Change to flex */
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  margin: 0 5px;
-}
-.button-container {
     display: flex;
+    /* Change to flex */
     justify-content: center;
-    width: 100%;
+    align-items: center;
+    flex: 1;
+    margin: 0 5px;
 }
+
 /*bestäm avstånd mellan knapparna*/
 .counter-box button {
     margin: 0 5px;
 }
+
 /* avstånden mellan listan och texten under*/
 #infoList {
     margin-top: 50px;
