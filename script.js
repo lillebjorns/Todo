@@ -81,6 +81,7 @@ function updateCounter() {
 function toggleCounterBox() {
   if (todos.length > 0) {
     counterBox.style.display = 'block';
+    todoInput.style.boxShadow = 'none';
     //lägg till så att pilen ändras här
   } else {
     counterBox.style.display = 'none';

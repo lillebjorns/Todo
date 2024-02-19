@@ -35,7 +35,7 @@ h1 {
     position: relative;
     width: 550px;
     height: 65px;
-    
+   
 }
 
 #selectAllButton {
@@ -60,6 +60,7 @@ h1 {
     height: 100%;
     padding-left: 45px;
     border: none;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
    
 }
 
@@ -124,8 +125,6 @@ h1 {
     margin: 0 5px;
   }
   
-
-  
   #active-items > *:last-child {
     margin-left: auto;
   }
@@ -138,6 +137,7 @@ h1 {
 
 /* avstånden mellan listan och texten under*/
 #infoList {
+    
     margin-top: 50px;
     text-align: center;
     font-size: small;
