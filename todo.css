@@ -96,42 +96,34 @@ h1 {
 /*ger en "låda" till alla entiteter under input*/
 .counter-box {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    flex: 1;
     border: 1px solid #ddd;
-    padding: 10px;
     width: 550px;
     margin: 0 auto;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
-}
-
-#counter {
-    text-align: left;
-}
-
-#clear-completed {
-    text-align: right;
-}
-
-/*lösning från stack overflow, ger samma plats till både 
-counter och den tomma entiteten*/
-#counter,
-#clear-completed {
-    flex: 1;
-}
-
-#active-items {
+  }
+  
+  #counter {
+    justify-self: start;
+  }
+  
+  #clear-completed {
+   
+   justify-self: flex-end;
+  }
+  
+  #active-items {
     display: flex;
-    /* Change to flex */
     justify-content: center;
     align-items: center;
-    flex: 1;
     margin: 0 5px;
-}
-
-/*bestäm avstånd mellan knapparna*/
-.counter-box button {
+  }
+  
+  .counter-box button {
     margin: 0 5px;
-}
+  }
 
 /* avstånden mellan listan och texten under*/
 #infoList {
