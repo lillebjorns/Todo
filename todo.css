@@ -67,9 +67,15 @@ h1 {
     text-align: left;
     list-style-type: none;
 } 
+
+#itemList li :first-child {
+    margin-right: 10px;
+}
+
 .destroy {
     display: none;
     cursor: pointer;
+    margin-left: auto;
 }
 
 .todo-item:hover .destroy {
