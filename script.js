@@ -25,7 +25,7 @@ function createTodoElement(todo, index) {
   todoItem.classList.add('todo-item');
   toggleInput.classList.add('toggle');
   destroyButton.classList.add('destroy');
-
+  todoDiv.classList.add('tododiv');
   toggleInput.type = 'checkbox';
   toggleInput.checked = todo.completed;
   toggleInput.setAttribute('data-index', index);//index till för att manipulera rätt todo

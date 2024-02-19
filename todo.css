@@ -77,6 +77,10 @@ h1 {
     cursor: pointer;
     margin-left: auto;
 }
+.tododiv :last-child{
+    display: flex;
+    justify-content: flex-end;
+}
 
 .todo-item:hover .destroy {
     display: inline;
