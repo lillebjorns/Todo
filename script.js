@@ -82,9 +82,11 @@ function toggleCounterBox() {
   if (todos.length > 0) {
     counterBox.style.display = 'block';
     todoInput.style.boxShadow = 'none';
+    selectAllButton.style.display='block';
     //lägg till så att pilen ändras här
   } else {
     counterBox.style.display = 'none';
+    selectAllButton.style.boxShadow ='none';
   }
 }
 
