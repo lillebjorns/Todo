@@ -8,15 +8,15 @@ body {
     word-break: break-word;
     min-width: 230px;
     max-width: 550px;
+    
     font-size: 15px;
-    margin: 0 auto;
+    margin: 0px auto;
     background-color: #f5f5f5;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 }
 main{
-    display: flex;
-    flex: 1;
+   
 }
 header {
     text-align: center;
@@ -33,7 +33,7 @@ h1 {
 .topnav {
     display: flex;
     position: relative;
-    width: 550px;
+    /* width: 550px; */
     height: 65px;
    
 }
@@ -54,6 +54,7 @@ h1 {
 }
 
 #input {
+    display: flex;
     font-style: italic;
     position: absolute;
     font-size: 24px;
@@ -69,14 +70,15 @@ h1 {
 .toggle{
     min-width: 25px;
     min-height: 25px;
-    
 }
 .toggle:checked{
     background-color: rgb(125, 188, 48);
 }
-
+#itemlist{
+display: flex;
+}
 #itemList li {
-    width: 550px;
+    
     border: 1px solid #dfdfdf;
     padding: 15px;
     font-size: 15px;
@@ -113,9 +115,10 @@ h1 {
 /*ger en "låda" till alla entiteter under input*/
 .counter-box {
     display: flex;
-    flex: 1;
+    /* flex: 1; */
+    flex-wrap: wrap;
     border: 1px solid #ddd;
-    width: 550px;
+    /* width: 550px; */
     padding: 5px;
     margin: 0 auto;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
@@ -131,15 +134,16 @@ h1 {
   
   #active-items {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 0 5px;
   }
   
-  #active-items > *:last-child {
+  #active-items :last-child {
     margin-left: auto;
   }
-  #active-items > *:first-child {
+  #active-items :first-child {
     margin-right: auto;
   }
   .counter-box button {
