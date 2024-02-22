@@ -145,10 +145,10 @@ label{
   
    display: flex;
    margin-left: 10px;
-    min-width: 117px;/* har den inte en min-width här växer den beroende på om det är plural eller ej, och flyttar resterande flexar. onajs. */
+    min-width: 125px;/* har den inte en min-width här växer den beroende på om det är plural eller ej, och flyttar resterande flexar. onajs. */
     justify-self: flex-start;
     align-self: center;
-    text-align: start;
+    
 }
 
 .counter-box :last-child {
@@ -162,10 +162,11 @@ label{
     justify-content: center;
    
 }
-@media screen and (max-width: 462px) {
+@media screen and (max-width: 471px) {
     
      #counter{
         flex: auto;
+       
     }
     #active-items {
          order: 2; /*sätter så att den får mittenplatsen i flexen */
