@@ -146,7 +146,7 @@ label{
   
    display: flex;
    margin-left: 10px;
-    min-width: 125px;/* har den inte en min-width här växer den beroende på om det är plural eller ej, och flyttar resterande flexar. onajs. */
+    min-width: 130px;/* har den inte en min-width här växer den beroende på om det är plural eller ej, och flyttar resterande flexar. onajs. */
     justify-self: flex-start;
     align-self: center;
     
@@ -158,7 +158,7 @@ label{
     justify-content: center;
    
 }
-@media screen and (max-width: 461px) {
+@media screen and (max-width: 465px) {
     
      #counter{
         flex: auto;
