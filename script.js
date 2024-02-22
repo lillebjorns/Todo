@@ -57,6 +57,7 @@ function renderTodos() {
 
   updateCounter();
   toggleCounterBox();
+  toggleClearCompletedButton();
 }
 function renderFilteredTodos(filteredTodos) { // samma som ovan fast med filtrerade todos som parameter
 
@@ -75,12 +76,13 @@ function renderFilteredTodos(filteredTodos) { // samma som ovan fast med filtrer
 function updateCounter() {
   const activeTodos = todos.filter(todo => !todo.completed).length;
   counter.textContent = `${activeTodos} item${activeTodos !== 1 ? 's' : ''} left`; // pluralsfix
+  
 }
 
 // visa footern/counterbox metod
 function toggleCounterBox() {
   if (todos.length > 0) {
-    counterBox.style.display = 'block';
+    counterBox.style.display = 'flex';
     todoInput.style.boxShadow = 'none';
     selectAllButton.style.display='block';
     //lägg till så att pilen ändras här
@@ -108,6 +110,7 @@ itemList.addEventListener('change', function (event) {
     todos[index].completed = !todos[index].completed;
     renderTodos();
   }
+  toggleClearCompletedButton();
 });
 
 // target:destroy.
@@ -118,7 +121,7 @@ itemList.addEventListener('click', function (event) {
     renderTodos();
   }
 });
-
+//knappfunktioner nedan
 AllButton.addEventListener('click', function (event) {
   event.preventDefault();
   todos = [...todos];
@@ -143,6 +146,10 @@ clearCompletedButton.addEventListener('click', function (event) {
   todos = todos.filter(todo => !todo.completed);
   renderTodos();
 });
+function toggleClearCompletedButton() {
+  const anyCompleted = todos.some(todo => todo.completed);
+  clearCompletedButton.style.opacity = anyCompleted ? 1 : 0;
+}
 
 selectAllButton.addEventListener('click', function (event) {
   let allCompleted = true;

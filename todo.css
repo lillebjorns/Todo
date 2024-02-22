@@ -8,16 +8,13 @@ body {
     word-break: break-word;
     min-width: 230px;
     max-width: 550px;
-    
     font-size: 15px;
     margin: 0px auto;
     background-color: #f5f5f5;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 }
-main{
-   
-}
+
 header {
     text-align: center;
     margin-top: 20px;
@@ -33,9 +30,7 @@ h1 {
 .topnav {
     display: flex;
     position: relative;
-    /* width: 550px; */
     height: 65px;
-   
 }
 
 #selectAllButton {
@@ -64,23 +59,26 @@ h1 {
     height: 100%;
     padding-left: 45px;
     border: none;
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
-   
+    
 }
+#input:focus{
+    outline: 0px;
+    box-shadow: 0 0 2px 2px rgba(185, 93, 93, 0.688);
+    -webkit-font-smoothing: antialiased;
+}
+
 .toggle{
     min-width: 25px;
     min-height: 25px;
 }
-.toggle:checked{
-    background-color: rgb(125, 188, 48);
+.toggle:checked + label {
+    text-decoration: line-through;
+    color: #a0a0a0;
 }
-#itemlist{
-display: flex;
-}
+
 #itemList li {
-    
     border: 1px solid #dfdfdf;
-    padding: 15px;
+    padding: 16px;
     font-size: 15px;
     text-align: left;
     list-style-type: none;
@@ -91,10 +89,14 @@ display: flex;
 }
 .todo-item {
     position: relative; 
+    
 }
 .tododiv{
     display: flex;
     justify-content: left;
+}
+label{
+    padding-top: 4px;
 }
 .destroy {
     opacity: 0;
@@ -113,46 +115,81 @@ display: flex;
 }
 
 /*ger en "låda" till alla entiteter under input*/
+
+
+#clearCompleted:hover {
+    text-decoration: underline;
+    box-shadow: none;
+}
+
+
 .counter-box {
-    display: flex;
-    /* flex: 1; */
+    min-height: 50px;
+    display: none;
     flex-wrap: wrap;
+    max-width: 550px;
     border: 1px solid #ddd;
-    /* width: 550px; */
     padding: 5px;
     margin: 0 auto;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
   }
-  
-  /* #counter {
-    justify-self: start;
+ 
+ /* 1:a värdet (1) är flex-grow, bestämmer hur mycket plats ett flexelement får växa. desto högre desto större. */
+ /* 2:a värdet(1) är flex-shrink, samma som ovan fast hur mycket ett element får krympa., högre siffra,desto mer kan det krympa. */
+ /* 3e värdet(auto) är flex-basis, sätter initialt värde på elementet innan den börjar räkna med de två föregående värdena. */
+.counter-box > * { 
+     flex: 1 1 auto; 
+    
   }
+ .counter-box #counter{
   
-  #clear-completed {
-   justify-self:left;
-  } */
-  
-  #active-items {
+   display: flex;
+   margin-left: 10px;
+    min-width: 116px;/* har den inte en min-width här växer den beroende på om det är plural eller ej, och flyttar resterande flexar. onajs. */
+    justify-self: flex-start;
+    align-self: center;
+    text-align: start;
+}
+
+.counter-box :last-child {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-self: center;
+    margin-right: 10px;
+}
+#active-items {
+    display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 0 5px;
+   
+}
+@media screen and (max-width: 462px) {
+    
+     #counter{
+        flex: auto;
+    }
+    #active-items {
+         order: 2; /*sätter så att den får mittenplatsen i flexen */
+    }
+
+}
+
+button{
+    border: none;
+    background: none;
+    padding: 4px;
+    font-size: 1em;
   }
-  
-  #active-items :last-child {
-    margin-left: auto;
-  }
-  #active-items :first-child {
-    margin-right: auto;
-  }
+
+  button:hover, button:focus  {
+    box-shadow: 0 0 1px 1px rgb(185, 93, 93);
+    outline: 0 0 1px 1px rgb(185, 93, 93);
+}
   .counter-box button {
     margin: 0 5px;
-  }
+}
 
 /* avstånden mellan listan och texten under*/
 #infoList {
-    
     margin-top: 50px;
     text-align: center;
     font-size: small;
