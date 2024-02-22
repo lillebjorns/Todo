@@ -87,7 +87,7 @@ function toggleCounterBox() {
     //lägg till så att pilen ändras här
   } else {
     counterBox.style.display = 'none';
-    selectAllButton.style.boxShadow ='none';
+    selectAllButton.style.display ='none';
   }
 }
 
