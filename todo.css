@@ -177,7 +177,7 @@ button{
     font-size: 1em;
   }
 
-  button:hover, button:focus  {
+  #active-items button:hover, #active-items button:focus  {
     box-shadow: 0 0 1px 1px rgb(185, 93, 93);
     outline: 0 0 1px 1px rgb(185, 93, 93);
 }
