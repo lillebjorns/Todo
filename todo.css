@@ -145,7 +145,7 @@ label{
   
    display: flex;
    margin-left: 10px;
-    min-width: 116px;/* har den inte en min-width här växer den beroende på om det är plural eller ej, och flyttar resterande flexar. onajs. */
+    min-width: 117px;/* har den inte en min-width här växer den beroende på om det är plural eller ej, och flyttar resterande flexar. onajs. */
     justify-self: flex-start;
     align-self: center;
     text-align: start;
