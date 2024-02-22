@@ -117,7 +117,10 @@ label{
 
 /*ger en "låda" till alla entiteter under input*/
 
-
+#clearCompleted{
+    display: flex;
+    justify-content: flex-end;
+}
 #clearCompleted:hover {
     text-decoration: underline;
     box-shadow: none;
@@ -158,14 +161,14 @@ label{
     justify-content: center;
    
 }
-@media screen and (max-width: 465px) {
+@media screen and (max-width: 466px) {
     
      #counter{
         flex: auto;
        
     }
     #active-items {
-         order: 2; /*sätter så att den får mittenplatsen i flexen */
+         order: 1; /*sätter så att den får mittenplatsen i flexen */
     }
 
 }
