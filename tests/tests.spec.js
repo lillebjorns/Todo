@@ -13,3 +13,13 @@ test('add single todo', async ({ page }) => {
 
     await page.waitForTimeout(4000);
 });
+
+test('add single todo and check completed', async ({ page }) => {
+    await page.waitForSelector('#input');
+    await page.fill('#input', 'todo added');
+    await page.press('#input', 'Enter');
+    await page.waitForSelector('li.todo-item');
+    await expect(page.getByText('todo added')).toBeVisible();
+    await page.click('input.toggle');
+    await page.waitForTimeout(4000);
+});
