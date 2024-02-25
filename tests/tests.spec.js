@@ -27,12 +27,12 @@ test('add single todo and check completed', async ({ page }) => {
 test('add three todo and check completed of one', async ({ page }) => {
     await page.waitForSelector('#input');
     for (const todoText of ['todo1', 'todo2', 'todo3']) {
-      await page.fill('#input', todoText);
-      await page.press('#input', 'Enter');
+        await page.fill('#input', todoText);
+        await page.press('#input', 'Enter');
     }
     await page.waitForSelector('li.todo-item');
-        const data = await page.evaluate(() => window.todos);
-      const todos = data;
-
-      await page.check('input.toggle', { index: 1 });
+    const data = await page.evaluate(() => window.todos);
+    const todos = data;
+    await page.check('input.toggle', { index: 1 });
+    await page.waitForTimeout(4000);
 });

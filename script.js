@@ -11,6 +11,7 @@ let completedButton = document.getElementById('completedButton');
 let clearCompletedButton = document.getElementById('clearCompleted');
 let selectAllButton = document.getElementById('selectAllButton');
 let todoForm = document.getElementById('todoinput');
+let container = document.querySelector('.container');
 
 let todos = [];
 renderTodos(); // första som händer när sidan läses in
@@ -76,18 +77,18 @@ function renderFilteredTodos(filteredTodos) { // samma som ovan fast med filtrer
 function updateCounter() {
   const activeTodos = todos.filter(todo => !todo.completed).length;
   counter.textContent = `${activeTodos} item${activeTodos !== 1 ? 's' : ''} left`; // pluralsfix
-  
+
 }
 
 // visa footern/counterbox metod
 function toggleCounterBox() {
   if (todos.length > 0) {
     counterBox.style.display = 'flex';
-    selectAllButton.style.display='block';
+    selectAllButton.style.display = 'block';
     //lägg till så att pilen ändras här
   } else {
     counterBox.style.display = 'none';
-    selectAllButton.style.display ='none';
+    selectAllButton.style.display = 'none';
   }
 }
 
@@ -174,5 +175,3 @@ selectAllButton.addEventListener('click', function (event) {
 
   renderTodos();
 });
-
-
